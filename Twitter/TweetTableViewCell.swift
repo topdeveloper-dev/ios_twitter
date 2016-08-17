@@ -10,20 +10,23 @@ import UIKit
 
 class TweetTableViewCell: UITableViewCell {
 
+  @IBOutlet weak var retweetView: UIView!
   @IBOutlet weak var retweetLabel: UILabel!
   @IBOutlet weak var avatarImageView: UIImageView!
   @IBOutlet weak var retweetedLabel: UILabel!
   @IBOutlet weak var userLabel: UILabel!
   @IBOutlet weak var tweetTextLabel: UILabel!
 
-  var tweet: Tweet? {
+  var tweet: Tweet! {
     didSet {
-      guard let tweet = tweet else { return }
       retweetLabel.text = tweet.retweeted
+      retweetView.hidden = tweet.retweeted == nil
       userLabel.text = tweet.userName
       tweetTextLabel.text = tweet.text
       if let avatarURL = tweet.avatarURL {
         avatarImageView.setImageWithURL(avatarURL)
+      } else {
+        avatarImageView.image = nil
       }
     }
   }

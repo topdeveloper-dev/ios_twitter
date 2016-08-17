@@ -92,7 +92,7 @@
                                                                     </constraints>
                                                                 </imageView>
                                                                 <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Joe Shmoe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="UxZ-Gc-M5Q">
-                                                                    <rect key="frame" x="70" y="2" width="62" height="14"/>
+                                                                    <rect key="frame" x="70" y="2" width="62" height="13.5"/>
                                                                     <fontDescription key="fontDescription" type="boldSystem" pointSize="11"/>
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
@@ -106,11 +106,10 @@
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="height" constant="50" id="0EN-AE-dhl"/>
-                                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="huH-IZ-wbO" secondAttribute="bottom" constant="5" id="0W2-dw-grM"/>
                                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UxZ-Gc-M5Q" secondAttribute="trailing" constant="8" id="Auk-gF-67e"/>
+                                                                <constraint firstItem="huH-IZ-wbO" firstAttribute="top" secondItem="UxZ-Gc-M5Q" secondAttribute="bottom" constant="0.5" id="Gcg-jB-cX4"/>
                                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="12z-P4-5GE" secondAttribute="bottom" id="Mku-YG-Owg"/>
-                                                                <constraint firstItem="huH-IZ-wbO" firstAttribute="top" secondItem="UxZ-Gc-M5Q" secondAttribute="bottom" id="T7X-F2-zvY"/>
+                                                                <constraint firstAttribute="bottom" secondItem="huH-IZ-wbO" secondAttribute="bottom" constant="7.5" id="NH6-Hb-fF3"/>
                                                                 <constraint firstItem="12z-P4-5GE" firstAttribute="top" secondItem="dK9-wL-l89" secondAttribute="top" id="VVa-Fc-RVz"/>
                                                                 <constraint firstItem="huH-IZ-wbO" firstAttribute="leading" secondItem="12z-P4-5GE" secondAttribute="trailing" constant="15" id="gA2-4J-QNZ"/>
                                                                 <constraint firstItem="UxZ-Gc-M5Q" firstAttribute="top" secondItem="dK9-wL-l89" secondAttribute="top" constant="2" id="h4o-Kc-QZa"/>
@@ -121,17 +120,16 @@
                                                         </view>
                                                     </subviews>
                                                     <constraints>
-                                                        <constraint firstAttribute="height" relation="greaterThanOrEqual" constant="68" id="2BO-P7-dlm"/>
                                                         <constraint firstItem="dK9-wL-l89" firstAttribute="leading" secondItem="chM-GI-Zrj" secondAttribute="leading" id="Adf-cR-RK4"/>
                                                         <constraint firstAttribute="trailing" secondItem="dK9-wL-l89" secondAttribute="trailing" id="Lxt-se-u90"/>
                                                         <constraint firstItem="bmI-ht-z0m" firstAttribute="leading" secondItem="chM-GI-Zrj" secondAttribute="leading" id="YJU-IZ-uUw"/>
                                                         <constraint firstAttribute="trailing" secondItem="bmI-ht-z0m" secondAttribute="trailing" id="sX5-27-PLa"/>
-                                                        <constraint firstItem="dK9-wL-l89" firstAttribute="top" secondItem="bmI-ht-z0m" secondAttribute="bottom" id="yv3-ve-gwt"/>
                                                     </constraints>
                                                 </stackView>
                                             </subviews>
                                             <constraints>
-                                                <constraint firstItem="chM-GI-Zrj" firstAttribute="top" secondItem="wYK-tj-q1T" secondAttribute="top" id="80x-5f-KmB"/>
+                                                <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="chM-GI-Zrj" secondAttribute="bottom" constant="8" id="HoK-v8-p03"/>
+                                                <constraint firstItem="chM-GI-Zrj" firstAttribute="top" secondItem="wYK-tj-q1T" secondAttribute="top" id="Ou3-bF-dDT"/>
                                                 <constraint firstItem="chM-GI-Zrj" firstAttribute="leading" secondItem="wYK-tj-q1T" secondAttribute="leading" id="aux-tJ-WjO"/>
                                                 <constraint firstAttribute="trailing" secondItem="chM-GI-Zrj" secondAttribute="trailing" id="vZW-ij-VzX"/>
                                             </constraints>
@@ -139,6 +137,7 @@
                                         <connections>
                                             <outlet property="avatarImageView" destination="12z-P4-5GE" id="ZOt-D5-yv4"/>
                                             <outlet property="retweetLabel" destination="gQp-VU-2Ik" id="ZDK-TO-CIF"/>
+                                            <outlet property="retweetView" destination="bmI-ht-z0m" id="QH6-ub-oE9"/>
                                             <outlet property="retweetedLabel" destination="gQp-VU-2Ik" id="UaF-Fv-4uQ"/>
                                             <outlet property="tweetTextLabel" destination="huH-IZ-wbO" id="oK1-2Y-iQq"/>
                                             <outlet property="userLabel" destination="UxZ-Gc-M5Q" id="pzz-t6-RvH"/>
