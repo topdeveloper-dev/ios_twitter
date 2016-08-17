@@ -103,17 +103,33 @@
                                                                     <color key="textColor" red="0.0" green="0.0" blue="0.0" alpha="1" colorSpace="calibratedRGB"/>
                                                                     <nil key="highlightedColor"/>
                                                                 </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="@JoeShmoe" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="b1D-Mb-W4J">
+                                                                    <rect key="frame" x="137" y="1" width="65.5" height="14"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
+                                                                <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="5h" textAlignment="natural" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="bcS-VW-gqn">
+                                                                    <rect key="frame" x="298.5" y="2" width="13.5" height="14"/>
+                                                                    <fontDescription key="fontDescription" type="system" pointSize="11"/>
+                                                                    <color key="textColor" white="0.5" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                                                                    <nil key="highlightedColor"/>
+                                                                </label>
                                                             </subviews>
                                                             <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
                                                             <constraints>
-                                                                <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="UxZ-Gc-M5Q" secondAttribute="trailing" constant="8" id="Auk-gF-67e"/>
                                                                 <constraint firstItem="huH-IZ-wbO" firstAttribute="top" secondItem="UxZ-Gc-M5Q" secondAttribute="bottom" constant="0.5" id="Gcg-jB-cX4"/>
+                                                                <constraint firstItem="b1D-Mb-W4J" firstAttribute="top" secondItem="dK9-wL-l89" secondAttribute="top" constant="1" id="Gqj-9o-sQh"/>
                                                                 <constraint firstAttribute="bottom" relation="greaterThanOrEqual" secondItem="12z-P4-5GE" secondAttribute="bottom" id="Mku-YG-Owg"/>
                                                                 <constraint firstAttribute="bottom" secondItem="huH-IZ-wbO" secondAttribute="bottom" constant="7.5" id="NH6-Hb-fF3"/>
+                                                                <constraint firstItem="bcS-VW-gqn" firstAttribute="leading" relation="greaterThanOrEqual" secondItem="b1D-Mb-W4J" secondAttribute="trailing" constant="5" id="Tgb-ZK-Mqy"/>
+                                                                <constraint firstItem="b1D-Mb-W4J" firstAttribute="leading" secondItem="UxZ-Gc-M5Q" secondAttribute="trailing" constant="5" id="VI5-2O-9gM"/>
                                                                 <constraint firstItem="12z-P4-5GE" firstAttribute="top" secondItem="dK9-wL-l89" secondAttribute="top" id="VVa-Fc-RVz"/>
+                                                                <constraint firstItem="bcS-VW-gqn" firstAttribute="top" secondItem="dK9-wL-l89" secondAttribute="top" constant="2" id="ahu-xM-B6N"/>
                                                                 <constraint firstItem="huH-IZ-wbO" firstAttribute="leading" secondItem="12z-P4-5GE" secondAttribute="trailing" constant="15" id="gA2-4J-QNZ"/>
                                                                 <constraint firstItem="UxZ-Gc-M5Q" firstAttribute="top" secondItem="dK9-wL-l89" secondAttribute="top" constant="2" id="h4o-Kc-QZa"/>
                                                                 <constraint firstAttribute="trailing" relation="greaterThanOrEqual" secondItem="huH-IZ-wbO" secondAttribute="trailing" constant="8" id="lYU-Eh-yBh"/>
+                                                                <constraint firstAttribute="trailing" secondItem="bcS-VW-gqn" secondAttribute="trailing" constant="8" id="pRS-fY-MgS"/>
                                                                 <constraint firstItem="UxZ-Gc-M5Q" firstAttribute="leading" secondItem="12z-P4-5GE" secondAttribute="trailing" constant="15" id="xyj-UA-iuf"/>
                                                                 <constraint firstItem="12z-P4-5GE" firstAttribute="leading" secondItem="dK9-wL-l89" secondAttribute="leading" constant="8" id="zZx-iC-LTU"/>
                                                             </constraints>
@@ -136,9 +152,11 @@
                                         </tableViewCellContentView>
                                         <connections>
                                             <outlet property="avatarImageView" destination="12z-P4-5GE" id="ZOt-D5-yv4"/>
+                                            <outlet property="dateLabel" destination="bcS-VW-gqn" id="bFu-Po-iW6"/>
                                             <outlet property="retweetLabel" destination="gQp-VU-2Ik" id="ZDK-TO-CIF"/>
                                             <outlet property="retweetView" destination="bmI-ht-z0m" id="QH6-ub-oE9"/>
                                             <outlet property="retweetedLabel" destination="gQp-VU-2Ik" id="UaF-Fv-4uQ"/>
+                                            <outlet property="screenName" destination="b1D-Mb-W4J" id="3Wf-ey-iG0"/>
                                             <outlet property="tweetTextLabel" destination="huH-IZ-wbO" id="oK1-2Y-iQq"/>
                                             <outlet property="userLabel" destination="UxZ-Gc-M5Q" id="pzz-t6-RvH"/>
                                         </connections>

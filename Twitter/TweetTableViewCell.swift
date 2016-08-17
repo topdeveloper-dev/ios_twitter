@@ -16,13 +16,17 @@ class TweetTableViewCell: UITableViewCell {
   @IBOutlet weak var retweetedLabel: UILabel!
   @IBOutlet weak var userLabel: UILabel!
   @IBOutlet weak var tweetTextLabel: UILabel!
+  @IBOutlet weak var dateLabel: UILabel!
+  @IBOutlet weak var screenName: UILabel!
 
   var tweet: Tweet! {
     didSet {
       retweetLabel.text = tweet.retweeted
       retweetView.hidden = tweet.retweeted == nil
       userLabel.text = tweet.userName
+      screenName.text = tweet.screenName
       tweetTextLabel.text = tweet.text
+      dateLabel.text = tweet.prettyTimeStamp
       if let avatarURL = tweet.avatarURL {
         avatarImageView.setImageWithURL(avatarURL)
       } else {
