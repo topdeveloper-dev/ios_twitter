@@ -45,9 +45,9 @@ class Tweet: NSObject {
     if let text = text where text.substringToIndex(rtUserStartIndex) == "RT " {
       if let colonRange = text.rangeOfString(":") {
         let colonEndIndex = colonRange.endIndex
-        let colonStartIndex = colonRange.startIndex.advancedBy(-1)
-        let rtUserName = text.substringWithRange(rtUserStartIndex...colonStartIndex)
-        self.text = text.substringWithRange(colonEndIndex...text.endIndex.advancedBy(-1))
+        let colonStartIndex = colonRange.startIndex
+        let rtUserName = text.substringWithRange(rtUserStartIndex..<colonStartIndex)
+        self.text = text.substringWithRange(colonEndIndex..<text.endIndex)
         self.retweeted = "\(rtUserName) retweeted"
       }
     }
