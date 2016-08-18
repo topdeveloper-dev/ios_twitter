@@ -18,7 +18,6 @@ class TwitterClient: BDBOAuth1SessionManager {
   var loginFailure: ((NSError) -> ())?
 
   func tweet(status: String, success: () -> (), failure: (NSError) -> ()) {
-    guard let status = status.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet()) else { return }
     let parameters = [ "status": status ]
     POST("1.1/statuses/update.json", parameters: parameters, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) in
       success()
