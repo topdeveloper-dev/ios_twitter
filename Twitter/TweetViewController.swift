@@ -8,37 +8,28 @@
 
 import UIKit
 
-class TweetViewController: UIViewController {
-
-  @IBOutlet weak var retweetLabel: UILabel!
-  @IBOutlet weak var retweetView: UIView!
-  @IBOutlet weak var avatarImageView: UIImageView!
-  @IBOutlet weak var userLabel: UILabel!
-  @IBOutlet weak var screenName: UILabel!
-  @IBOutlet weak var dateLabel: UILabel!
-  @IBOutlet weak var tweetTextLabel: UILabel!
-  @IBOutlet weak var retweetCountLabel: UILabel!
-  @IBOutlet weak var favoriteCountLabel: UILabel!
+class TweetViewController: UIViewController, UITableViewDelegate, UITableViewDataSource {
 
   var tweet: Tweet!
+
+  @IBOutlet weak var tableView: UITableView!
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    retweetLabel.text = tweet.retweeted
-    retweetView.hidden = tweet.retweeted == nil
-    userLabel.text = tweet.userName
-    screenName.text = tweet.screenName
-    tweetTextLabel.text = tweet.text
-    dateLabel.text = tweet.prettyTimeStamp
-    retweetCountLabel.text = "\(tweet.retweetCount)"
-    favoriteCountLabel.text = "\(tweet.favoritesCount)"
-    if let avatarURL = tweet.avatarURL {
-      avatarImageView.setImageWithURL(avatarURL)
-    } else {
-      avatarImageView.image = nil
-    }
-    // Do any additional setup after loading the view.
+    tableView.delegate = self
+    tableView.dataSource = self
+  }
+
+  func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
+    return 1
+  }
+
+  func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
+    let cell = tableView.dequeueReusableCellWithIdentifier("TweetDetailedTableViewCell") as! TweetDetailedTableViewCell
+
+    cell.tweet = tweet
+    return cell
   }
 
   override func didReceiveMemoryWarning() {
