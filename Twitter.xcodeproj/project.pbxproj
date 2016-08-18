@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		21ADEAA21D64D2AC007E595B /* TweetTableViewCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ADEAA11D64D2AC007E595B /* TweetTableViewCell.swift */; };
+		21ADEAC21D6533C3007E595B /* NewTweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21ADEAC11D6533C3007E595B /* NewTweetViewController.swift */; };
 		21B21DC11D623DFB009FE7F9 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B21DC01D623DFB009FE7F9 /* AppDelegate.swift */; };
 		21B21DC31D623DFB009FE7F9 /* ViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = 21B21DC21D623DFB009FE7F9 /* ViewController.swift */; };
 		21B21DC61D623DFB009FE7F9 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = 21B21DC41D623DFB009FE7F9 /* Main.storyboard */; };
@@ -23,6 +24,7 @@
 
 /* Begin PBXFileReference section */
 		21ADEAA11D64D2AC007E595B /* TweetTableViewCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetTableViewCell.swift; sourceTree = "<group>"; };
+		21ADEAC11D6533C3007E595B /* NewTweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = NewTweetViewController.swift; sourceTree = "<group>"; };
 		21B21DBD1D623DFB009FE7F9 /* Twitter.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Twitter.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		21B21DC01D623DFB009FE7F9 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		21B21DC21D623DFB009FE7F9 /* ViewController.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ViewController.swift; sourceTree = "<group>"; };
@@ -109,6 +111,7 @@
 				21B21DD21D624034009FE7F9 /* LoginViewController.swift */,
 				21B21DC21D623DFB009FE7F9 /* ViewController.swift */,
 				21B21DDD1D62A052009FE7F9 /* TweetsViewController.swift */,
+				21ADEAC11D6533C3007E595B /* NewTweetViewController.swift */,
 			);
 			name = "View Controllers";
 			sourceTree = "<group>";
@@ -267,6 +270,7 @@
 				21B21DDE1D62A052009FE7F9 /* TweetsViewController.swift in Sources */,
 				21B21DDC1D628306009FE7F9 /* TwitterClient.swift in Sources */,
 				21B21DC11D623DFB009FE7F9 /* AppDelegate.swift in Sources */,
+				21ADEAC21D6533C3007E595B /* NewTweetViewController.swift in Sources */,
 				21ADEAA21D64D2AC007E595B /* TweetTableViewCell.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

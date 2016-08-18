@@ -17,12 +17,22 @@ class TwitterClient: BDBOAuth1SessionManager {
   var loginSuccess: (() -> ())?
   var loginFailure: ((NSError) -> ())?
 
+  func tweet(status: String, success: () -> (), failure: (NSError) -> ()) {
+    guard let status = status.stringByAddingPercentEncodingWithAllowedCharacters(.URLHostAllowedCharacterSet()) else { return }
+    let parameters = [ "status": status ]
+    POST("1.1/statuses/update.json", parameters: parameters, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) in
+      success()
+    }, failure: { (task: NSURLSessionDataTask?, error: NSError) in
+      print("error", error)
+    })
+  }
+
   func homeTimeline(success: ([Tweet]) -> (), failure: (NSError) -> ()) {
     GET("1.1/statuses/home_timeline.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) in
       let tweets = Tweet.tweetsWithArray(response as! [NSDictionary])
       success(tweets)
-      }, failure: { (task: NSURLSessionDataTask?, error: NSError) in
-        print("error", error)
+    }, failure: { (task: NSURLSessionDataTask?, error: NSError) in
+      print("error", error)
     })
   }
 
@@ -30,8 +40,8 @@ class TwitterClient: BDBOAuth1SessionManager {
     GET("1.1/account/verify_credentials.json", parameters: nil, progress: nil, success: { (task: NSURLSessionDataTask, response: AnyObject?) in
       let user = User(dictionary: response as! NSDictionary) // todo
       success(user)
-      }, failure: { (task: NSURLSessionDataTask?, error: NSError) in
-        failure(error)
+    }, failure: { (task: NSURLSessionDataTask?, error: NSError) in
+      failure(error)
     })
   }
 
