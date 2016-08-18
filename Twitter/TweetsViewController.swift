@@ -70,16 +70,18 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
+    
   }
 
-  /*
    // MARK: - Navigation
 
    // In a storyboard-based application, you will often want to do a little preparation before navigation
    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
-   // Get the new view controller using segue.destinationViewController.
-   // Pass the selected object to the new view controller.
+    if let vc = segue.destinationViewController as? TweetViewController {
+      let cell = sender as! TweetTableViewCell
+      let indexPath = tableView.indexPathForCell(cell)!
+      vc.tweet = tweets![indexPath.row]
+    }
    }
-   */
 
 }
