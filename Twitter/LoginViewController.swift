@@ -25,8 +25,7 @@ class LoginViewController: UIViewController {
 
   @IBAction func onLoginButton(sender: AnyObject) {
     let client = TwitterClient.sharedInstance
-    client.login({ 
-//      self.performSegueWithIdentifier("loginSegue", sender: nil)
+    client.login({
       let appDelegate = UIApplication.sharedApplication().delegate as! AppDelegate
       appDelegate.initLoggedIn()
     }) { (error:NSError) in

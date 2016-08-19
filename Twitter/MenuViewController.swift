@@ -31,14 +31,16 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     let tweetsViewController = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationController")
+    let mentionsViewController = storyboard.instantiateViewControllerWithIdentifier("MentionsNavigationController")
+    let profileViewController = storyboard.instantiateViewControllerWithIdentifier("ProfileNavigationController")
 
     viewControllers.append(tweetsViewController)
-    // Do any additional setup after loading the view.
+    viewControllers.append(mentionsViewController)
+    viewControllers.append(profileViewController)
   }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
-    // Dispose of any resources that can be recreated.
   }
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -51,9 +53,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
     selectViewControllerAtIndex(row)
-
-//    let vc = viewControllers[row]
-//    hamburgerViewController.contentViewController = vc
   }
 
   func selectViewControllerAtIndex(index: Int) {

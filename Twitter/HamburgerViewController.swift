@@ -42,8 +42,6 @@ class HamburgerViewController: UIViewController {
   @IBOutlet weak var leftMarginConstraint: NSLayoutConstraint!
   override func viewDidLoad() {
     super.viewDidLoad()
-
-    // Do any additional setup after loading the view.
   }
 
   func toggle(open: Bool) {
