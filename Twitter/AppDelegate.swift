@@ -20,10 +20,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     let storyboard = UIStoryboard(name: "Main", bundle: nil)
 
     if (User.currentUser != nil) {
-      print("user not nil")
-
-      let vc = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationController")
-      window?.rootViewController = vc
+      initLoggedIn()
     }
 
     NSNotificationCenter.defaultCenter().addObserverForName(TwitterClient.userDidLogoutNotification, object: nil, queue: NSOperationQueue.mainQueue()) { (notification: NSNotification) in
@@ -31,6 +28,22 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     }
 
     return true
+  }
+
+  func initLoggedIn() {
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    
+    //      let vc = storyboard.instantiateViewControllerWithIdentifier("TweetsNavigationController")
+    let hamburgerViewController = storyboard.instantiateViewControllerWithIdentifier("HamburgerViewController") as! HamburgerViewController
+
+    let menuViewController = storyboard.instantiateViewControllerWithIdentifier("MenuViewController") as! MenuViewController
+
+    menuViewController.hamburgerViewController = hamburgerViewController
+    hamburgerViewController.menuViewController = menuViewController
+
+    menuViewController.selectViewControllerAtIndex(0)
+
+    window?.rootViewController = hamburgerViewController
   }
 
   func applicationWillResignActive(application: UIApplication) {
