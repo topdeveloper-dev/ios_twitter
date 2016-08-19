@@ -19,6 +19,9 @@ class TweetViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     tableView.delegate = self
     tableView.dataSource = self
+
+    tableView.rowHeight = UITableViewAutomaticDimension
+    tableView.estimatedRowHeight = 300
   }
 
   func tableView(tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
@@ -30,6 +33,10 @@ class TweetViewController: UIViewController, UITableViewDelegate, UITableViewDat
 
     cell.tweet = tweet
     return cell
+  }
+
+  func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
+    tableView.deselectRowAtIndexPath(indexPath, animated: true)
   }
 
   override func didReceiveMemoryWarning() {

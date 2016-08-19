@@ -19,6 +19,7 @@ class TweetDetailedTableViewCell: UITableViewCell {
   @IBOutlet weak var retweetLabel: UILabel!
   @IBOutlet weak var favoriteCountLabel: UILabel!
   @IBOutlet weak var retweetCountLabel: UILabel!
+  @IBOutlet weak var countsView: UIView!
 
   var tweet: Tweet! {
     didSet {
@@ -41,6 +42,7 @@ class TweetDetailedTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
+
   }
 
   override func setSelected(selected: Bool, animated: Bool) {
