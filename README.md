@@ -2,7 +2,7 @@
 
 **Twitter** is a basic twitter app to read and compose tweets the [Twitter API](https://apps.twitter.com).
 
-Time spent: **11** hours spent in total
+Time spent: **13** hours spent in total
 
 ## User Stories
 
@@ -18,9 +18,9 @@ The following **required** functionality is completed:
 - [X] Hamburger menu
    - [X] Dragging anywhere in the view should reveal the menu.
    - [X] The menu should include links to your profile, the home timeline, and the mentions view.
-- [ ] Profile page
-   - [ ] Contains the user header view (implemented as a custom view)
-   - [ ] Contains a section with the users basic stats: # tweets, # following, # followers
+- [X] Profile page
+   - [X] Contains the user header view (implemented as a custom view)
+   - [X] Contains a section with the users basic stats: # tweets, # following, # followers
 - [ ] Home Timeline
    - [ ] Tapping on a user image should bring up that user's profile page
 
