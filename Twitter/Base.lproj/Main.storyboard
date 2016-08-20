@@ -681,7 +681,7 @@
             </objects>
             <point key="canvasLocation" x="584" y="1805"/>
         </scene>
-        <!--Profile View Controller-->
+        <!--Profile-->
         <scene sceneID="3Gs-0A-ZKd">
             <objects>
                 <viewController storyboardIdentifier="ProfileViewController" id="90p-dE-OOS" customClass="ProfileViewController" customModule="Twitter" customModuleProvider="target" sceneMemberID="viewController">
@@ -815,7 +815,7 @@
                             <constraint firstItem="CLj-tu-U6k" firstAttribute="top" secondItem="VGV-0o-ipN" secondAttribute="top" id="wX7-MI-GRz"/>
                         </constraints>
                     </view>
-                    <navigationItem key="navigationItem" id="isr-TC-WGe"/>
+                    <navigationItem key="navigationItem" title="Profile" id="isr-TC-WGe"/>
                     <connections>
                         <outlet property="tableView" destination="CLj-tu-U6k" id="MsW-vZ-63I"/>
                     </connections>

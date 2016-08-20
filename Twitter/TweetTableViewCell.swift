@@ -19,6 +19,8 @@ class TweetTableViewCell: UITableViewCell {
   @IBOutlet weak var dateLabel: UILabel!
   @IBOutlet weak var screenName: UILabel!
 
+  var navigationController: UINavigationController?
+
   var tweet: Tweet! {
     didSet {
       retweetLabel.text = tweet.retweeted
@@ -37,6 +39,21 @@ class TweetTableViewCell: UITableViewCell {
   override func awakeFromNib() {
     super.awakeFromNib()
     // Initialization code
+
+    let tapGestureRecognizer = UITapGestureRecognizer(target:self, action:#selector(TweetTableViewCell.avatarImageTapped))
+    avatarImageView.userInteractionEnabled = true
+    avatarImageView.addGestureRecognizer(tapGestureRecognizer)
+  }
+
+  func avatarImageTapped() {
+    guard let navigationController = navigationController else { return }
+
+    let storyboard = UIStoryboard(name: "Main", bundle: nil)
+    let profileViewController = storyboard.instantiateViewControllerWithIdentifier("ProfileViewController") as! ProfileViewController
+
+    profileViewController.userScreenName = tweet.screenName
+
+    navigationController.pushViewController(profileViewController, animated: true)
   }
 
   override func setSelected(selected: Bool, animated: Bool) {

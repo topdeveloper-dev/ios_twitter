@@ -15,7 +15,6 @@ class HamburgerViewController: UIViewController {
     didSet {
       view.layoutIfNeeded()
       menuView.addSubview(menuViewController.view)
-      print("xxxx")
     }
   }
 

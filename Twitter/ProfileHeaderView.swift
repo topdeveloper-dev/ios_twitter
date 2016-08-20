@@ -21,11 +21,36 @@ class ProfileHeaderView: UIView {
   @IBOutlet weak var userLabel: UILabel!
   @IBOutlet weak var screenNameLabel: UILabel!
 
+  var userScreenName: String? {
+    didSet {
+      setup()
+    }
+  }
+
+  var user: User? {
+    didSet {
+      setup()
+    }
+  }
+
   override func awakeFromNib() {
     super.awakeFromNib()
 
-    let user = User.currentUser!
+  }
 
+  func setup() {
+    if let userScreenName = userScreenName {
+      TwitterClient.sharedInstance.getUser(screenName: userScreenName, success: { (user: User) in
+        self.populateWithUser(user)
+        }, failure: { (error: NSError) in
+          print(error)
+      });
+    } else {
+      populateWithUser(User.currentUser!)
+    }
+  }
+
+  func populateWithUser(user: User) {
     backgroundColor = UIColor.blackColor()
 
     let grey = UIColor.blackColor().colorWithAlphaComponent(0.1).CGColor

@@ -27,7 +27,6 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
     tableView.rowHeight = UITableViewAutomaticDimension
 
     TwitterClient.sharedInstance.homeTimeline({ (tweets: [Tweet]) in
-      print(tweets)
       self.tweets = tweets
       self.tableView.reloadData()
     }) { (error: NSError) in
@@ -62,6 +61,7 @@ class TweetsViewController: UIViewController, UITableViewDelegate, UITableViewDa
   func tableView(tableView: UITableView, cellForRowAtIndexPath indexPath: NSIndexPath) -> UITableViewCell {
     let cell = tableView.dequeueReusableCellWithIdentifier("TweetTableViewCell") as! TweetTableViewCell
 
+    cell.navigationController = navigationController
     cell.tweet = tweets![indexPath.row]
     return cell
   }

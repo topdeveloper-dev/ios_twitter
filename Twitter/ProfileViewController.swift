@@ -13,12 +13,19 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
   @IBOutlet weak var tableView: UITableView!
 
   var tweets: [Tweet]?
-  var headerView: UIView!
+  var headerView: ProfileHeaderView!
+  var userScreenName: String?
 
   override func viewDidLoad() {
     super.viewDidLoad()
 
-    headerView = NSBundle.mainBundle().loadNibNamed("ProfileHeader", owner: nil, options: nil)[0] as? UIView
+    headerView = NSBundle.mainBundle().loadNibNamed("ProfileHeader", owner: nil, options: nil)[0] as! ProfileHeaderView
+
+    if userScreenName != nil {
+      headerView.userScreenName = userScreenName
+    } else {
+      headerView.user = User.currentUser
+    }
 
     let refreshControl = UIRefreshControl()
     refreshControl.addTarget(self, action: #selector(TweetsViewController.refreshControlAction), forControlEvents: UIControlEvents.ValueChanged)
@@ -29,28 +36,40 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     tableView.estimatedRowHeight = 100
     tableView.rowHeight = UITableViewAutomaticDimension
 
-    TwitterClient.sharedInstance.homeTimeline({ (tweets: [Tweet]) in
-      print(tweets)
-      self.tweets = tweets
-      self.tableView.reloadData()
-    }) { (error: NSError) in
-      print("error", error)
-    }
+    refreshTweets()
   }
 
   override func didReceiveMemoryWarning() {
     super.didReceiveMemoryWarning()
   }
 
-  func refreshControlAction(refreshControl: UIRefreshControl) {
-    TwitterClient.sharedInstance.homeTimeline({ (tweets: [Tweet]) in
+  func refreshTweets(refreshControl: UIRefreshControl?) {
+    let success = { (tweets: [Tweet]) in
       self.tweets = tweets
       self.tableView.reloadData()
-      refreshControl.endRefreshing()
-    }) { (error: NSError) in
-      print("error", error)
-      refreshControl.endRefreshing()
+      refreshControl?.endRefreshing()
     }
+    let failure = { (error: NSError) in
+      print("error", error)
+      refreshControl?.endRefreshing()
+    }
+
+    if let userScreenName = userScreenName {
+      TwitterClient.sharedInstance.userTimeline(
+        screenName: userScreenName,
+        success: success,
+        failure: failure)
+    } else {
+      TwitterClient.sharedInstance.homeTimeline(success, failure: failure)
+    }
+  }
+
+  func refreshTweets() {
+    refreshTweets(nil)
+  }
+
+  func refreshControlAction(refreshControl: UIRefreshControl) {
+    refreshTweets(refreshControl)
   }
 
   @IBAction func onLogoutButton(sender: AnyObject) {
@@ -66,6 +85,7 @@ class ProfileViewController: UIViewController, UITableViewDelegate, UITableViewD
     let cell = tableView.dequeueReusableCellWithIdentifier("TweetTableViewCell") as! TweetTableViewCell
 
     cell.tweet = tweets![indexPath.row]
+    cell.navigationController = navigationController
     return cell
   }
 

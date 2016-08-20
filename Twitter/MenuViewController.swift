@@ -49,7 +49,6 @@ class MenuViewController: UIViewController, UITableViewDelegate, UITableViewData
 
   func tableView(tableView: UITableView, didSelectRowAtIndexPath indexPath: NSIndexPath) {
     let row = indexPath.row
-    print("select!", row)
     tableView.deselectRowAtIndexPath(indexPath, animated: true)
 
     selectViewControllerAtIndex(row)
